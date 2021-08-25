@@ -12,7 +12,7 @@ class User_Card(db.Model):
     def to_dict(self):
         return{
             'id': self.id,
-            'usersId': self.usersId,
+            'userId': self.userId,
             'name': self.name,
             'description': self.description,
             'typeofcuisine': self.typeofcuisine
