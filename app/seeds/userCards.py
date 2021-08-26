@@ -58,5 +58,5 @@ def seed_User_Cards():
     db.session.commit()
 
 def undo_User_Cards():
-    db.session.execute('TRUNCATE homeCards RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE userCards RESTART IDENTITY CASCADE;')
     db.session.commit()
