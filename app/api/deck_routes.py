@@ -1,24 +1,25 @@
 from flask import Blueprint, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import db, Deck
-app.forms import deckCreationForm
+from app.forms.deckCreationForm import DeckForm
 from .auth_routes import validation_errors_to_error_messages
 
 deck_routes = Blueprint('decks', __name__)
 
 #* GET 
-@deck_routes.route('/<int:id>', methods=['GET'])
+@deck_routes.route('/', methods=['GET'])
 def deckGet():
-    decks = Deck.query.filter_by(userId)
-    return {'decks': [decks.to_dict() for deck in decks]}
+    decks = Deck.query.all()
+    return {'decks': [deck.to_dict() for deck in decks]}
 
 
 #* POST
-@deck_routes.route('/<int:id>', methods=['POST'])
+@deck_routes.route('/', methods=['POST'])
 def deckPost():
-    form = deckCreationForm()
+    form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        #* flask login- current_user for userId
         deck = Deck(
             userId = form.data['userId'],
             deckName = form.data['deckName']
@@ -30,11 +31,11 @@ def deckPost():
 
 
 #* PUT
-@deck_routes.route('/<int:id>', method=['PUT'])
+@deck_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def deckPut(id):
     data = request.json
-    price = Deck.query.get(id)
+    deck = Deck.query.get(id)
     deck.deckName = data['deckName'] if data['deckName'] else deck.deckName
     db.session.commit()
     return {"message": id}
@@ -42,9 +43,9 @@ def deckPut(id):
 
 #* DELETE
 
-@deck_routes.route('</int:id>', method=['DELETE'])
+@deck_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def deckDelete(id)
+def deckDelete(id):
     deck = Deck.query.get(id)
     db.session.delete(deck)
     db.session.commit()
