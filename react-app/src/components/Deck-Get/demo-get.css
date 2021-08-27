@@ -1,0 +1,17 @@
+.page {
+    background-color: orange;
+    display: grid;
+    grid-template-columns: ;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.deck-cases {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 2fr);
+    grid-template-rows: auto;
+    grid-row: 2 /20;
+    grid-column: 2 / 20;
+    border-color: black;
+}

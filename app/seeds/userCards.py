@@ -1,7 +1,7 @@
 from app.models import db, User_Card
 
 def seed_User_Cards(): 
-    userCard1 =User_Card(userId=1,name="McDonald's",description="Known for its nuggets and burgers, McDonald's satisfies hunger when needed.",typeofcuisine="Fast Food")
+    userCard1 =User_Card(userId=2,name="McDonald's",description="Known for its nuggets and burgers, McDonald's satisfies hunger when needed.",typeofcuisine="Fast Food")
     userCard2 =User_Card(userId=1,name="Burger King",description="Burger King has burgers.",typeofcuisine="Fast Food")
     userCard3 =User_Card(userId=1,name="Chic Fil a",description="Closed on Sundays, but still loved by many.",typeofcuisine="Fast Food")
     userCard4 =User_Card(userId=1,name="TGIF",description="Thank God It's Friday. Good for going out to eat on Friday's.",typeofcuisine="American")
@@ -58,5 +58,5 @@ def seed_User_Cards():
     db.session.commit()
 
 def undo_User_Cards():
-    db.session.execute('TRUNCATE homeCards RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE userCards RESTART IDENTITY CASCADE;')
     db.session.commit()
