@@ -6,7 +6,7 @@ def seed_Deck():
     userDecks3 =Deck(userId=2,deckName="Third Deck")
     userDecks4 =Deck(userId=2,deckName="Fourth Deck")
     userDecks5 =Deck(userId=2,deckName="Fifth Deck")
-    userDecks6 =Deck(userId=2,deckName="Sixth Deck")
+    userDecks6 =Deck(userId=3,deckName="Sixth Deck")
     userDecks7 =Deck(userId=2,deckName="Seventh Deck")
     userDecks8 =Deck(userId=2,deckName="Eight Deck")
     userDecks9 =Deck(userId=2,deckName="Ninth Deck")

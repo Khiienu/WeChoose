@@ -16,13 +16,13 @@ card_to_deck = db.Table(
     )
 )
 
+
 class Deck(db.Model):
     __tablename__= 'decks'
 
     id= db.Column(db.Integer, primary_key=True)
     userId= db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     deckName= db.Column(db.String(50), nullable=False)
-
     userCards = db.relationship(
         "User_Card",
         secondary=card_to_deck,
@@ -33,5 +33,6 @@ class Deck(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
-            'deckName': self.deckName
+            'deckName': self.deckName,
+            "userCards": [c.to_dict() for c in self.userCards]
         }
