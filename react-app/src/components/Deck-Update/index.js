@@ -2,13 +2,14 @@ import {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { editOneDeckThunk } from '../../store/deck';
 
-export default function EditDeckName(singleDeck) {
+export default function EditDeckName({oneDeck}) {
     const dispatch = useDispatch();
     const [deckName, setDeckName] = useState("")
     
     const onSubmit = (e) => {
+        console.log("THIS IS EDIT SINGLEDECK DESTRUCTORED", oneDeck)
         e.preventDefault();
-        dispatch(editOneDeckThunk(singleDeck.oneDeck.id, {deckName}))
+        dispatch(editOneDeckThunk(oneDeck.id, {deckName}))
     }
 
 
