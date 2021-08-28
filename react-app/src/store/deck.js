@@ -1,6 +1,8 @@
 //! ACTION 
 const GET_DECKS = 'deck/GET_DECKS';
-const CREATE_DECK = 'deck/CREATE_DECK'
+const CREATE_DECK = 'deck/CREATE_DECK';
+const EDIT_DECK = 'deck/EDIT_DECK';
+const DELETE_DECK = 'deck/DELETE_DECK';
 
 const getAllDecks = decks => ({
     type: GET_DECKS,
@@ -9,6 +11,16 @@ const getAllDecks = decks => ({
 
 const createDeck = deck => ({
     type: CREATE_DECK,
+    deck
+})
+
+const editOneDeck = deck => ({
+    type: EDIT_DECK,
+    deck
+})
+
+const deleteOneDeck = deck => ({
+    type: DELETE_DECK,
     deck
 })
 
@@ -46,6 +58,36 @@ export const createDeckThunk = payload => async(dispatch) => {
 }
 
 
+//* THIS IS EDIT THUNK FOR DECK
+export const editOneDeckThunk = (id, payload) => async(dispatch) => {
+    console.log("EDIT THUNK PAYLOAD AND ID", payload, id)
+    const res = await fetch(`/api/decks/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+    const data = res.json();
+    dispatch(editOneDeck(data))
+}
+
+
+//* THIS IS DELETE THUNK FOR DECK 
+
+export const deleteOneDeckThunk = (id) => async(dispatch) => {
+    const res = await fetch(`/api/decks/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    if(res.ok){
+        const deleteDeck = await res.json();
+        dispatch(deleteOneDeck(deleteDeck))
+    }
+}
+
 //? REDUCER
 
 const initialState = {};
@@ -57,12 +99,21 @@ const deckReducer = (state = initialState, action) => {
                 newState[deck.id] = deck
             })
             return newState;
+        case EDIT_DECK:
+            return {
+                ...state,
+                ...action.deck
+            }
         case CREATE_DECK:
             const newDeck = {
                 ...state,
             }
             newDeck[action.deck.id] = action.deck 
             return newDeck
+        case DELETE_DECK:
+            const deckToDelete = {...state}
+            delete deckToDelete[action.deck]
+            return deckToDelete;
         default:
             return state;
     }
