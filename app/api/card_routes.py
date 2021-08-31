@@ -22,7 +22,21 @@ def cardGetOne(id):
 def cardGetById():
     cards = User_Card.query.filter(current_user.id == User_Card.userId).all()
     # print("THIS IS CARDS", cards.map())
-    return {'cards', [card.to_dict() for card in cards]}
+    return {'cards': [card.to_dict() for card in cards]}
 
 
-# @card_route.route('', methods=['post'])
+@card_routes.route('', methods=['POST'])
+def cardPost():
+    form = CardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        card = Card(
+            userId = form.data['userId'],
+            name = form.data['name'],
+            description = form.data['description'],
+            typeofcuisine = form.data['typeofcuisine']
+        )
+        db.session.add(card)
+        db.session.commit()
+        return card.to_dict
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

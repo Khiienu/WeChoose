@@ -40,12 +40,12 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
-        <Route path='/decks' exact={true}>
+        <ProtectedRoute path='/decks' exact={true}>
           <GetDeck />
-        </Route>
-        <Route path='/decks/:id' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/decks/:id' exact={true}>
           <SingleDeck />
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
