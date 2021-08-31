@@ -100,19 +100,22 @@ const deckReducer = (state = initialState, action) => {
             })
             return newState;
         case EDIT_DECK:
+            // return {
+            //     ...state,
+            //     ...action.deck
+            // }
+        case CREATE_DECK:
             return {
                 ...state,
-                ...action.deck
+                [action.deck.id]: action.deck 
             }
-        case CREATE_DECK:
-            const newDeck = {
-                ...state,
-            }
-            newDeck[action.deck.id] = action.deck 
-            return newDeck
+
+        // case CREATE_DECK:
+        //     newState = {[action.deck.id]: action.deck, ...state}
+        //     return newState;
         case DELETE_DECK:
             const deckToDelete = {...state}
-            delete deckToDelete[action.deck]
+            delete deckToDelete[action.deck.id]
             return deckToDelete;
         default:
             return state;

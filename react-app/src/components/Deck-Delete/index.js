@@ -8,7 +8,7 @@ export default function DeleteOneDeck({oneDeck}) {
     const deleteClick = (e) => {
         e.preventDefault();
         dispatch(deleteOneDeckThunk(oneDeck.id))
-        window.location.reload()
+        window.location.replace('/decks') //* THIS IS TO SEE IT WORK 
     }
 
     return (

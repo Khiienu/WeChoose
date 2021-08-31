@@ -15,7 +15,7 @@ def deckGet(id):
     deck = Deck.query.get(id)
     thing = deck.to_dict()
     # cards = card_to_deck.query.all()
-    print("THIS IS THE PRING ********************************", thing)
+    # print("THIS IS THE PRING ********************************", thing)
     return deck.to_dict() 
     # return {'decks': [deck.to_dict() for deck in decks]}
 
@@ -23,6 +23,7 @@ def deckGet(id):
 @deck_routes.route('/decksByUser')
 def deckGetById():
     decks = Deck.query.filter(current_user.id == Deck.userId).all()
+    print("this is decks in routes =====", decks)
     return {'decks': [deck.to_dict() for deck in decks]}
 
 
