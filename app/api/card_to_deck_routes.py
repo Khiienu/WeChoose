@@ -26,3 +26,16 @@ def cardToDeckPost():
         return thisDeck.to_dict()
     except:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@card_to_deck_routes.route('', methods=['DELETE'])
+def deleteCardToDeck():
+    try: 
+        thisDeck = Deck.query.get(request.json["deckId"])
+        thisCard = User_Card.query.get(request.json["cardId"])
+        thisDeck.userCards.remove(thisCard)
+        db.session.add(thisDeck)
+        db.session.commit()
+        return thisDeck.to_dict()
+    except:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
