@@ -24,7 +24,7 @@ def cardGetById():
     # print("THIS IS CARDS", cards.map())
     return {'cards': [card.to_dict() for card in cards]}
 
-
+#* POST FOR ONE CARD.
 @card_routes.route('', methods=['POST'])
 def cardPost():
     form = CardForm()
@@ -40,3 +40,24 @@ def cardPost():
         db.session.commit()
         return card.to_dict
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+#* PUT
+
+@card_routes.route('/<int:id>', methods=['PUT'])
+# @login_required
+def cardPut(id):
+    data = request.json
+    card = Card.query.get(id)
+    card.name = data['name'] if data['name'] else card.name
+    db.session.commit()
+    return {"message": id}
+
+#* DELETE 
+
+@card_routes.route('/<int:id>', methods=['DELETE'])
+# @login_required
+def cardDelete(id):
+    card = Card.query.get(id)
+    db.session.delete(card)
+    db.session.commit()
+    return {"message": id}

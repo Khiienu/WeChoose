@@ -17,3 +17,4 @@ export default function DeleteOneDeck({oneDeck}) {
         </div>
     )
 }
+//! USE useEffect 
