@@ -30,7 +30,7 @@ def cardPost():
     form = CardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        card = Card(
+        card = User_Card(
             userId = form.data['userId'],
             name = form.data['name'],
             description = form.data['description'],
@@ -38,7 +38,7 @@ def cardPost():
         )
         db.session.add(card)
         db.session.commit()
-        return card.to_dict
+        return card.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #* PUT
@@ -47,17 +47,17 @@ def cardPost():
 # @login_required
 def cardPut(id):
     data = request.json
-    card = Card.query.get(id)
+    card = User_Card.query.get(id)
     card.name = data['name'] if data['name'] else card.name
     db.session.commit()
-    return {"message": id}
+    return card.to_dict()
 
 #* DELETE 
 
 @card_routes.route('/<int:id>', methods=['DELETE'])
 # @login_required
 def cardDelete(id):
-    card = Card.query.get(id)
+    card = User_Card.query.get(id)
     db.session.delete(card)
     db.session.commit()
     return {"message": id}
