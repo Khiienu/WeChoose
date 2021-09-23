@@ -52,7 +52,7 @@ def deckPut(id):
     deck = Deck.query.get(id)
     deck.deckName = data['deckName'] if data['deckName'] else deck.deckName
     db.session.commit()
-    return {"message": id}
+    return deck.to_dict()
 
 
 #* DELETE

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams} from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
-import { getDeckThunk } from '../../store/singleDeckStore';
+import { getDeckThunk } from '../../store/deck';
 import EditDeckName from '../Deck-Update';
 import DeleteOneDeck from '../Deck-Delete';
 export default function SingleDeck() {
@@ -9,24 +9,20 @@ export default function SingleDeck() {
     const dispatch = useDispatch();
 
     const sessionUser = useSelector((state) => state.session.user);
-    const oneDeck = useSelector((state) =>  state.singleDeck)
-
-    console.log("THIS IS oneDeck", oneDeck)
-    useEffect(async() => {
-        await dispatch(getDeckThunk(id))
+    const decks = useSelector((state) =>  Object.values(state.decks))
+    const oneDeck = decks.find(deck => deck.id === +id)
+    console.log("THIS IS ONE DECK FOR COMPONENT", decks)
+    useEffect(() => {
+        dispatch(getDeckThunk(id))
     }, [dispatch])
 
     return (
         <div className="deck">
             <h1>
-                {oneDeck.deckName}
-                {oneDeck.userCards?.map(ele => {
-                    return (
-                        <>
+                {oneDeck?.deckName}
+                {decks?.userCards?.map(ele => (     
                             <h2>{ele.name}</h2>
-                        </>
-                    )
-                })}
+                ))}
             </h1>
             <EditDeckName oneDeck={oneDeck}/>
             <DeleteOneDeck oneDeck={oneDeck}/>
