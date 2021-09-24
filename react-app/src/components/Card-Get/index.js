@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { getCardsThunk } from "../../store/card";
 import { Link } from "react-router-dom";
-
+import CardCreator from "../Card-Add";
 
 export default function GetCard() {
     const dispatch = useDispatch();
@@ -12,14 +12,16 @@ export default function GetCard() {
     useEffect(()=> {
         dispatch(getCardsThunk())
     }, [dispatch])
-    console.log(cards, "THIS IS CARDS")
-    
 
     return (
         <div className="card-case">
             {cards.map((card) => (
-                <h1>{card.name}</h1>
+                <Link key={card.id} to={`/cards/${card.id}`}
+                className="indiv-card">
+                <h1 className="cardName">{card.name}</h1>
+                </Link>
             ))}
+            <CardCreator/>
         </div>
     )
 }

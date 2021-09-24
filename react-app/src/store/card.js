@@ -56,28 +56,31 @@ export const createCardThunk = payload => async(dispatch) => {
         },
         body: JSON.stringify(payload)
     })
+
     if(res.ok){
         const card = await res.json()
+        console.log(payload, "THIS IS PAYLOAD BRO")
         dispatch(createCard(card))
         return card;
     }
-    else {
-        let error = await res.json()
-        console.log("ERROR", error)
-    }
+    // else {
+    //     let error = await res.json()
+    //     console.log("ERROR", error)
+    // }
 }
 
 //* THUNK FOR EDIT FROM USER
-export const editOneCardThunk = (id, payload) => async(dispatch) => {
+export const editOneCardThunk = (id, card) => async(dispatch) => {
     const res = await fetch(`/api/cards/${id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(card)
     })
-    const data = res.json();
+    const data = await res.json();
     dispatch(editOneCard(data))
+    return data
 }
 
 //* THUNK FOR DELETING CARD 

@@ -18,6 +18,7 @@ export default function EditDeckName({oneDeck}) {
             deckName: deckNames
         }
         dispatch(editOneDeckThunk(oneDeck.id, editInfo))
+        console.log(editInfo, "THIS IS editdeck ))))")
         setDeckNames("")
     }
 

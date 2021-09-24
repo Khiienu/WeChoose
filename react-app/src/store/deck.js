@@ -77,7 +77,6 @@ export const createDeckThunk = payload => async(dispatch) => {
 
 //* THIS IS EDIT THUNK FOR DECK
 export const editOneDeckThunk = (id, deck) => async(dispatch) => {
-    console.log("EDIT THUNK PAYLOAD AND ID", deck, id)
     const res = await fetch(`/api/decks/${id}`, {
         method: 'PUT',
         headers: {
