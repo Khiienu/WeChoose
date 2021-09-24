@@ -18,6 +18,7 @@ const NavBar = ({ isLoaded }) => {
         </NavLink>
         <NavLink className="navProfile" to="/decks" exact={true} activeClassName="active">Decks</NavLink>
         <div className="navLogout">
+        
           <LogoutButton />
         </div>
       </div>

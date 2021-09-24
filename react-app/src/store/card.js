@@ -1,4 +1,5 @@
 const GET_CARDS = 'card/GET_CARDS';
+const SINGLE_CARD = 'card/SINGLE_CARD';
 const CREATE_CARD = 'card/CREATE_CARD';
 const EDIT_CARD = 'card/EDIT_CARD';
 const DELETE_CARD = 'card/DELETE_CARD';
@@ -8,6 +9,10 @@ const getAllCards = cards => ({
     cards
 })
 
+const getSingleCard = card => ({
+    type: SINGLE_CARD,
+    card
+})
 const createCard = card => ({
     type: CREATE_CARD,
     card
@@ -33,8 +38,17 @@ export const getCardsThunk = () => async(dispatch) => {
     }
 } 
 
+//* THUNK FOR GETTING ONE CARD FROM USER
+export const getSingleCardThunk = (id) => async(dispatch) => {
+    const res = await fetch(`/api/cards/${id}`)
+    if(res.ok){
+        const singleCard = await res.json()
+        dispatch(getSingleCard(singleCard))
+    }
+} 
+
 //* THUNK FOR CREATING A CARD FOR USER
-export const createCardThunk = () => async(dispatch) => {
+export const createCardThunk = payload => async(dispatch) => {
     const res = await fetch('/api/cards', {
         method: 'POST',
         headers: {
@@ -92,15 +106,22 @@ const cardReducer = (state = initialState, action) => {
             })
             return newState;
         case EDIT_CARD:
-            co
-
-
-
-
-
-
-
-
-
+        case CREATE_CARD:
+            return {
+                ...state,
+                [action.card.id]: action.card
+            }
+        case SINGLE_CARD:
+            const oneCard = {...state}
+            oneCard[action.card.id] = action.card
+            return oneCard
+        case DELETE_CARD:
+            const cardToDelete = {...state}
+            delete cardToDelete[action.card.id]
+            return cardToDelete;
+        default:
+            return state;
     }
 }
+
+export default cardReducer;
