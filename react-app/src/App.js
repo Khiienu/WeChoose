@@ -12,6 +12,7 @@ import GetCard from './components/Card-Get';
 import { authenticate } from './store/session';
 import { getDecks } from './store/deck';
 import SingleDeck from './components/Deck-Inside';
+import SingleCard from './components/Card-Inside';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,6 +50,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/cards' exact={true}>
           <GetCard/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/cards/:id' exact={true}>
+          <SingleCard/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

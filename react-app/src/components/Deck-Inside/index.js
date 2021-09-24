@@ -11,7 +11,6 @@ export default function SingleDeck() {
     const sessionUser = useSelector((state) => state.session.user);
     const decks = useSelector((state) =>  Object.values(state.decks))
     const oneDeck = decks.find(deck => deck.id === +id)
-    console.log("THIS IS ONE DECK FOR COMPONENT", decks)
     useEffect(() => {
         dispatch(getDeckThunk(id))
     }, [dispatch])
