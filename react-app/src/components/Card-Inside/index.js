@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams} from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
-import { getSingleCardThunk } from '../../store/card'
+import { deleteoneCardThunk, getSingleCardThunk } from '../../store/card'
 import EditCard from '../Card-Update'
-
+import DeleteOneCard from '../Card-Delete'
 
 export default function SingleCard() {
     const {id} = useParams();
@@ -23,6 +23,7 @@ export default function SingleCard() {
             {oneCard?.name}
         </h1>
         <EditCard oneCard={oneCard}/>
+        <DeleteOneCard oneCard={oneCard}/>
     </div>
     )
 }

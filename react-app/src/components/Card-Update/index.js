@@ -3,7 +3,6 @@ import { useSelector ,useDispatch } from 'react-redux';
 import { editOneCardThunk } from '../../store/card';
 
 export default function EditCard({oneCard}) {
-    console.log(oneCard, "THIS IS oneCard in card-update&&&&&")
     const dispatch = useDispatch();
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
