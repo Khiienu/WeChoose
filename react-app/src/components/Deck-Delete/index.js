@@ -14,8 +14,6 @@ export default function DeleteOneDeck({oneDeck}) {
         // history.push('/decks')
     }
 
-
-
     return (
         <div className="deletebutton">
             <button type='button' onClick={deleteClick}>delete</button>
