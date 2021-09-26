@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.home_routes import card_for_home_routes
 from .api.deck_routes import deck_routes
 from .api.card_routes import card_routes
+from .api.card_to_deck_routes import card_to_deck_routes
 from .seeds import seed_commands
 
 from .config import Config
@@ -39,6 +40,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(card_for_home_routes, url_prefix='/api/home')
 app.register_blueprint(deck_routes, url_prefix='/api/decks')
 app.register_blueprint(card_routes, url_prefix='/api/cards')
+app.register_blueprint(card_to_deck_routes, url_prefix='/api/cardToDeck')
 
 db.init_app(app)
 Migrate(app, db)

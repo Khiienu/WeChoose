@@ -20,7 +20,7 @@ export default function DeckCreator() {
 
     return (
         <>
-            <form onCreateSubmit={onCreateSubmit}>
+            <form onSubmit={onCreateSubmit}>
                 <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="New Deck Name" />    
                 <button className="newDeck" onClick={(e) => {
                     setName('')

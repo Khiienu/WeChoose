@@ -6,11 +6,13 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import GetDeck from './components/Deck-Get';
+import GetCard from './components/Card-Get';
 // import UsersList from './components/UsersList';
 // import User from './components/User';
 import { authenticate } from './store/session';
 import { getDecks } from './store/deck';
 import SingleDeck from './components/Deck-Inside';
+import SingleCard from './components/Card-Inside';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +47,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/decks/:id' exact={true}>
           <SingleDeck />
+        </ProtectedRoute>
+        <ProtectedRoute path='/cards' exact={true}>
+          <GetCard/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/cards/:id' exact={true}>
+          <SingleCard/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

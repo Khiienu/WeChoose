@@ -4,18 +4,28 @@ import { editOneDeckThunk } from '../../store/deck';
 
 export default function EditDeckName({oneDeck}) {
     const dispatch = useDispatch();
-    const [deckName, setDeckName] = useState("")
+    const [deckNames, setDeckNames] = useState("")
     const sessionUser = useSelector((state) => state.session.user);
+    const decks = useSelector((state) => Object.values(state.decks))
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    //     dispatch(editOneDeckThunk(oneDeck.id, {deckName: deckName}))
+    // }
     
     const onSubmit = (e) => {
         e.preventDefault();
-        dispatch(editOneDeckThunk(oneDeck.id, {userId: sessionUser.id ,deckName: deckName}))
+        const editInfo = {
+            deckName: deckNames
+        }
+        dispatch(editOneDeckThunk(oneDeck.id, editInfo))
+        console.log(editInfo, "THIS IS editdeck ))))")
+        setDeckNames("")
     }
 
-    console.log("THIS IS ONEDECK DOT ID",oneDeck.id)
+    // console.log("THIS IS ONEDECK DOT ID",oneDeck)
     return (
         <form onSubmit={onSubmit} className="edit-deck-name">
-            <input type="text" value={deckName} onChange={e => setDeckName(e.target.value)}></input>
+            <input type="text" onChange={e => setDeckNames(e.target.value)}></input>
             <button type="submit"> change name </button>
         </form>
     )

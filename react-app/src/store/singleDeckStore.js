@@ -1,33 +1,33 @@
-const GET_DECK = 'deck/GET_DECK'
+// const GET_SINGLE_DECK = 'deck/GET_SINGLE_DECK'
 
-const getOneDeck = (deck) => {
-    return {
-        type: GET_DECK,
-        deck
-    }
-}
+// const getOneDeck = (deck) => {
+//     return {
+//         type: GET_DECK,
+//         deck
+//     }
+// }
 
-export const getDeckThunk = (id) => async(dispatch) => {
-    const res = await fetch(`/api/decks/${id}`)
-    if(res.ok){
-        const singleDeck = await res.json()
-        dispatch(getOneDeck(singleDeck))
-    }
-}
+// export const getDeckThunk = (id) => async(dispatch) => {
+//     const res = await fetch(`/api/decks/${id}`)
+//     if(res.ok){
+//         const singleDeck = await res.json()
+//         dispatch(getOneDeck(singleDeck))
+//     }
+// }
 
-const initialState = {};
+// const initialState = {};
 
-const singleDeckReducer = (state = initialState, action ) => {
-    let newState = {};
+// const singleDeckReducer = (state = initialState, action ) => {
+//     let newState = {};
 
-    switch(action.type) {
-        case GET_DECK:
-            const oneDeck = action.deck
-            return oneDeck
+//     switch(action.type) {
+//         case GET_DECK:
+//             const oneDeck = action.deck
+//             return oneDeck
 
-        default:
-            return state
-    }
-}
+//         default:
+//             return state
+//     }
+// }
 
-export default singleDeckReducer;
+// export default singleDeckReducer;
