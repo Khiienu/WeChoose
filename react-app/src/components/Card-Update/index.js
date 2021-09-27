@@ -25,7 +25,15 @@ export default function EditCard({oneCard}) {
     }
     return (
         <form onSubmit={onEditSubmit} className="edit-deck-name">
-            <input type="text" onChange={e => setName(e.target.value)}></input>
+            <div className="headers">
+            <input type="text" onChange={e => setName(e.target.value)} placeholder="Change name"></input>
+            </div>
+            <div className="headers">
+            <input type="text" onChange={e => setDescription(e.target.value)} placeholder="Change Description"></input>
+            </div>
+            <div className="headers">
+            <input type="text" onChange={e => setTypeOfCuisine(e.target.value)} placeholder="Change type of cuisine"></input>
+            </div>
             <button type="submit"> change name </button>
         </form>
     )

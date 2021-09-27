@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { deleteoneCardThunk, getSingleCardThunk } from '../../store/card'
 import EditCard from '../Card-Update'
 import DeleteOneCard from '../Card-Delete'
+import './index.css'
 
 export default function SingleCard() {
     const {id} = useParams();
@@ -19,11 +20,17 @@ export default function SingleCard() {
 
     return (
         <div className="deck">
-        <h1>
-            {oneCard?.name}
-        </h1>
-        <EditCard oneCard={oneCard}/>
-        <DeleteOneCard oneCard={oneCard}/>
-    </div>
+            <div className="info">
+                <label className="card-info">{oneCard?.name}</label>
+            </div>
+            <div className="info">
+            <label className="card-info">{oneCard?.description}</label>
+            </div>
+            <div className="info">
+            <label className="card-info">{oneCard?.typeofcuisine}</label>
+            </div>
+            <EditCard oneCard={oneCard}/>
+            <DeleteOneCard oneCard={oneCard}/>
+        </div>
     )
 }

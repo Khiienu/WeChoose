@@ -24,8 +24,10 @@ export default function GetCard() {
                         </div>
                     </Link>
                 ))}
+                <div className="solo-card-2">
+                    <CardCreator/>
+                </div>
             </div>
-                <CardCreator/>
         </div>
     )
 }

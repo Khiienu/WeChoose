@@ -49,6 +49,8 @@ def cardPut(id):
     data = request.json
     card = User_Card.query.get(id)
     card.name = data['name'] if data['name'] else card.name
+    card.description = data['description'] if data ['description'] else card.description
+    card.typeofcuisine = data['typeofcuisine'] if data ['typeofcuisine'] else card.typeofcuisine
     db.session.commit()
     return card.to_dict()
 
