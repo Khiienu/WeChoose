@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { deleteoneCardThunk, getSingleCardThunk } from '../../store/card'
 import EditCard from '../Card-Update'
 import DeleteOneCard from '../Card-Delete'
+import AddToDeck from '../CTD-Add'
 import './index.css'
 
 export default function SingleCard() {
@@ -24,13 +25,15 @@ export default function SingleCard() {
                 <label className="card-info">{oneCard?.name}</label>
             </div>
             <div className="info">
-            <label className="card-info">{oneCard?.description}</label>
+                <label className="card-info">{oneCard?.description}</label>
             </div>
             <div className="info">
-            <label className="card-info">{oneCard?.typeofcuisine}</label>
+                <label className="card-info">{oneCard?.typeofcuisine}</label>
             </div>
+            <AddToDeck oneCard={oneCard}/>
             <EditCard oneCard={oneCard}/>
             <DeleteOneCard oneCard={oneCard}/>
+
         </div>
     )
 }

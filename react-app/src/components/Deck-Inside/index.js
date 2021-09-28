@@ -19,7 +19,7 @@ export default function SingleDeck() {
         <div className="deck">
             <h1>
                 {oneDeck?.deckName}
-                {decks?.userCards?.map(ele => (     
+                {oneDeck?.userCards?.map(ele => (     
                             <h2>{ele.name}</h2>
                 ))}
             </h1>

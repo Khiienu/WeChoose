@@ -10,8 +10,8 @@ export default function DeleteOneDeck({oneDeck}) {
         e.preventDefault();
         dispatch(deleteOneDeckThunk(oneDeck.id));
         // <Redirect to="/decks"/>
-        window.location.replace('/decks') //* THIS IS TO SEE IT WORK 
-        // history.push('/decks')
+        // window.location.replace('/decks') //* THIS IS TO SEE IT WORK 
+        history.push('/decks')
     }
 
     return (

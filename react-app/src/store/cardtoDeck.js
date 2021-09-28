@@ -14,12 +14,13 @@ const deleteCardFromDeck = ctd => ({
 //* THIS IS ADD THUNK 
 
 export const addCTD = (cardId, deckId) => async(dispatch) => {
-    const res =  await fetch(`/api/cardToDeck/`, {
+    console.log(cardId, deckId,"FROM STORE")
+    const res =  await fetch(`/api/cardToDeck`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(cardId, deckId)
+        body: JSON.stringify({cardId: cardId, deckId: deckId})
     })
     const data = await res.json();
     dispatch(addCardtoDeck(data));
@@ -27,12 +28,13 @@ export const addCTD = (cardId, deckId) => async(dispatch) => {
 }
 
 //* THIS IS DELETE THUNK
-export const deleteCFD = (id) => async(dispatch) => {
-    const res = await fetch(`/api/cardToDeck/`, {
+export const deleteCFD = (cardId, deckId) => async(dispatch) => {
+    const res = await fetch(`/api/cardToDeck`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify({cardId: cardId, deckId: deckId})
     })
     if(res.ok) {
         const deleteCard = await res.json()

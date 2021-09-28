@@ -134,7 +134,7 @@ const deckReducer = (state = initialState, action) => {
 
         case DELETE_DECK:
             const deckToDelete = {...state}
-            delete deckToDelete[action.deck.id]
+            delete deckToDelete[action.deck]
             return deckToDelete;
         default:
             return state;

@@ -15,7 +15,7 @@ card_to_deck_routes = Blueprint('cardToDeck', __name__)
 #     return card.to_dict()
 
 
-@card_to_deck_routes.route('', methods=['POST'])
+@card_to_deck_routes.route('', methods=['PUT'])
 def cardToDeckPost():
     try: 
         thisDeck = Deck.query.get(request.json["deckId"])
