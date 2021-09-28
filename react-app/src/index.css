@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 /* * this is css reset */
 html, body {
-	background-color: rgb(133, 53, 170);
+	background-color: rgba(80,35,33,255);
 	margin: 0;
 	padding: 0;
 	border: 0;
