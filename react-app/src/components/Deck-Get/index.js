@@ -18,10 +18,14 @@ export default function GetDeck() {
             <div className="deck-cases">
                 {decks.map((deck) => (
                     <Link key={deck.id} to={`/decks/${deck.id}`} className="indiv-deck">
-                    <h1 className="deckName">{deck.deckName}</h1>
+                    <div className="solo-deck">
+                        <h1 className="deckName">{deck.deckName}</h1>
+                    </div>
                     </Link>
                 ))}
-                <DeckCreator />
+                <div className="solo-deck-2">
+                    <DeckCreator />
+                </div>
             </div>
         </div>
     )

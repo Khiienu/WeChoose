@@ -19,11 +19,11 @@
 
 .form-inputs{
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 5px;
 }
 
-.newCard {
+.newDeck {
     border-radius: 10px;
     background-color: aquamarine;
 }
