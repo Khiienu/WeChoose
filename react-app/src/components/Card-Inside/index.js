@@ -14,7 +14,6 @@ export default function SingleCard() {
     const sessionUser= useSelector((state) => state.session.user);
     const cards = useSelector((state) => Object.values(state.cards))
     const oneCard =  cards.find(card=> card.id === +id)
-    console.log(cards, "THIS IS oneCArd in card-inside ******")
     useEffect(() => {
         dispatch(getSingleCardThunk(id))
     }, [dispatch])

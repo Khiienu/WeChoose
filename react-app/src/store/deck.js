@@ -4,6 +4,7 @@ const CREATE_DECK = 'deck/CREATE_DECK';
 const EDIT_DECK = 'deck/EDIT_DECK';
 const DELETE_DECK = 'deck/DELETE_DECK';
 const GET_SINGLE_DECK = 'deck/GET_SINGLE_DECK';
+const DELETE_CARD_FROM_DECK = 'cardToDeck/DELETE_CARD_FROM_DECK';
 
 
 const getOneDeck = (deck) => {
@@ -32,7 +33,10 @@ const deleteOneDeck = deck => ({
     type: DELETE_DECK,
     deck
 })
-
+const deleteCardFromDeck = deck => ({
+    type: DELETE_CARD_FROM_DECK,
+    deck
+})
 
 //* THUNK FOR GETTING ONE DECK FROM USER 
 export const getDeckThunk = (id) => async(dispatch) => {
@@ -70,7 +74,6 @@ export const createDeckThunk = payload => async(dispatch) => {
         return deck;
     }else {
         let error = await res.json()
-        console.log("ERROR", error)
     }
 }
 
@@ -85,7 +88,6 @@ export const editOneDeckThunk = (id, deck) => async(dispatch) => {
         body: JSON.stringify(deck)
     })
     const data = await res.json();
-    console.log(data, "THIS IS DATA FOR EDIT THUNK ACTION")
     dispatch(editOneDeck(data))
     return data
 }
@@ -106,6 +108,22 @@ export const deleteOneDeckThunk = (id) => async(dispatch) => {
     }
 }
 
+
+//* THIS IS DELETE THUNK
+export const deleteCFD = (cardId, deckId) => async(dispatch) => {
+    const res = await fetch(`/api/cardToDeck`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({cardId: cardId, deckId: deckId})
+    })
+    if(res.ok) {
+        const deleteCard = await res.json()
+        dispatch(deleteCardFromDeck(deleteCard))
+    }
+
+}
 //? REDUCER
 
 const initialState = {};
@@ -136,6 +154,10 @@ const deckReducer = (state = initialState, action) => {
             const deckToDelete = {...state}
             delete deckToDelete[action.deck]
             return deckToDelete;
+        // case DELETE_CARD_FROM_DECK:
+        //     const cardToDeleteFromDeck = {...state}
+        //     delete cardToDeleteFromDeck[action.deck.card]
+        //     return cardToDeleteFromDeck;
         default:
             return state;
     }

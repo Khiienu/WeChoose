@@ -59,14 +59,9 @@ export const createCardThunk = payload => async(dispatch) => {
 
     if(res.ok){
         const card = await res.json()
-        console.log(payload, "THIS IS PAYLOAD BRO")
         dispatch(createCard(card))
         return card;
     }
-    // else {
-    //     let error = await res.json()
-    //     console.log("ERROR", error)
-    // }
 }
 
 //* THUNK FOR EDIT FROM USER
@@ -120,7 +115,7 @@ const cardReducer = (state = initialState, action) => {
             return oneCard
         case DELETE_CARD:
             const cardToDelete = {...state}
-            delete cardToDelete[action.card.id]
+            delete cardToDelete[action.card]
             return cardToDelete;
         default:
             return state;

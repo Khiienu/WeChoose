@@ -18,11 +18,8 @@ export default function EditDeckName({oneDeck}) {
             deckName: deckNames
         }
         dispatch(editOneDeckThunk(oneDeck.id, editInfo))
-        console.log(editInfo, "THIS IS editdeck ))))")
         setDeckNames("")
     }
-
-    // console.log("THIS IS ONEDECK DOT ID",oneDeck)
     return (
         <form onSubmit={onSubmit} className="edit-deck-name">
             <input type="text" onChange={e => setDeckNames(e.target.value)}></input>

@@ -18,7 +18,6 @@ export default function EditCard({oneCard}) {
             typeofcuisine: typeofcuisine
         }
         dispatch(editOneCardThunk(oneCard.id, editCardInfo))
-        console.log(editCardInfo, "THIS IS editCardInfo ))))")
         setName('');
         setDescription('');
         setTypeOfCuisine('');

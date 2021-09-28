@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getCardsThunk } from "../../store/card";
 import { Link } from "react-router-dom";
 import CardCreator from "../Card-Add";
+import { getDecks } from "../../store/deck";
 import './index.css'
 export default function GetCard() {
     const dispatch = useDispatch();
@@ -10,6 +11,7 @@ export default function GetCard() {
     const cards = useSelector(state => Object.values(state.cards))
 
     useEffect(()=> {
+        dispatch(getDecks())
         dispatch(getCardsThunk())
     }, [dispatch])
 

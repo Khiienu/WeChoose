@@ -10,6 +10,7 @@ export default function AddToDeck({oneCard}) {
     const cards = useSelector((state) => Object.values(state.cards));
     const decks = useSelector((state) => Object.values(state.decks));
     const [deckId,setDeckId] = useState("")
+    // const []
 
     // const onSubmit = (e) => {
     //     e.preventDefault();
@@ -22,25 +23,27 @@ export default function AddToDeck({oneCard}) {
     // }
     return (
         <>
-            {/* <form> */}
-                {/* <select value={deckId}>
-                    {decks.map(deck => (
-                        <option key={deck.id} value={deck.id} onClick={() => {setDeckId(deck.id);}}>{deck.deckName}</option>
-                    ))}
-                </select> */}
+        {decks.map(deck => {
+            console.log(oneCard.id, "THIS IS oneCard")
+            console.log(deck.userCards, "THIS IS DECKS AND USERCARDS")
+            // if(!deck.userCards.includes(oneCard)) 
+            // const check = deck.userCards.map(cardId => {
+            //     return cardId
+            // })
+            // console.log(check, "CARD ID")
+                return (<button key={deck.id} onClick={() => {
+                    setDeckId(deck.id);
+                }}>{deck.deckName}</button>)
+            
+            
+        })}
 
-                    {decks.map(deck => (
-                        <button key={deck.id} onClick={() => {
-                            setDeckId(deck.id);
-                            console.log(oneCard.id, deckId, "THIS IS FOR ADD TO CARD")}
-                        }>{deck.deckName}</button>
-                    ))}
+        <button onClick={(e) => {
+            // if(decks.id.userCards.includes(oneCard.id)) {
 
-                <button onClick={(e) => {
-                    dispatch(addCTD(oneCard.id, deckId))
-                    console.log(oneCard.id, deckId, "THIS IS FOR ADD TO CARD")
-                    }}>ADD TO DECK</button>
-            {/* </form> */}
+            // }
+            dispatch(addCTD(oneCard.id, deckId))
+        }}>ADD TO DECK</button>
         </>
     )
 }

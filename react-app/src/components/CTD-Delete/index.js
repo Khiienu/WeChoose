@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, Redirect } from 'react-router-dom';
-import { deleteOneDeckThunk } from '../../store/deck';
+import { deleteCFD } from '../../store/deck';
 
-export default function DeleteOneDeck({oneDeck}) {
+export default function DeleteOneCardFromDeck({card, oneDeck}) {
     const dispatch = useDispatch();
     const history = useHistory();
+
     const deleteClick = (e) => {
         e.preventDefault();
-        dispatch(deleteOneDeckThunk(oneDeck.id));
+        dispatch(deleteCFD(card.id, oneDeck.id));
         // <Redirect to="/decks"/>
-        history.push('/decks')
-        window.location.replace('/decks') //* THIS IS TO SEE IT WORK 
+        history.push(`/decks/${oneDeck.id}`)
+        window.location.replace(`/decks/${oneDeck.id}`) //* THIS IS TO SEE IT WORK 
     }
 
     return (
@@ -20,4 +20,3 @@ export default function DeleteOneDeck({oneDeck}) {
         </div>
     )
 }
-//! USE useEffect 

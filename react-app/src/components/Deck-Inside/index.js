@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getDeckThunk } from '../../store/deck';
 import EditDeckName from '../Deck-Update';
 import DeleteOneDeck from '../Deck-Delete';
+import DeleteOneCardFromDeck from '../CTD-Delete';
 export default function SingleDeck() {
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -19,8 +20,11 @@ export default function SingleDeck() {
         <div className="deck">
             <h1>
                 {oneDeck?.deckName}
-                {oneDeck?.userCards?.map(ele => (     
-                            <h2>{ele.name}</h2>
+                {oneDeck?.userCards?.map(card => (
+                        <>   
+                            <h2>{card.name}</h2>
+                            <DeleteOneCardFromDeck card={card} oneDeck={oneDeck}/>
+                        </>
                 ))}
             </h1>
             <EditDeckName oneDeck={oneDeck}/>
