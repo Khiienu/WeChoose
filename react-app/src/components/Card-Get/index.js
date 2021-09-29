@@ -18,6 +18,9 @@ export default function GetCard() {
     return (
         <div className="page">
             <div className="card-case">
+                <div className="solo-card-2">
+                    <CardCreator/>
+                </div>
                 {cards.map((card) => (
                     <Link key={card.id} to={`/cards/${card.id}`}
                         className="indiv-card">
@@ -26,9 +29,6 @@ export default function GetCard() {
                         </div>
                     </Link>
                 ))}
-                <div className="solo-card-2">
-                    <CardCreator/>
-                </div>
             </div>
         </div>
     )

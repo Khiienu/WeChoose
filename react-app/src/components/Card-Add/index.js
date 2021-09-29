@@ -22,6 +22,7 @@ export default function CardCreator() {
     }
     return (
         <>
+        <h1 className="title">CREATE A CARD</h1>
         <div className="create-form">
             <form onSubmit={onCreateSubmit}>
                 <div className="form-1">

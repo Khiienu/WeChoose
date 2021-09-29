@@ -21,6 +21,7 @@ export default function DeckCreator() {
     return (
         <>
             <div className="create-form">
+            <h1 className="title">CREATE A DECK</h1>
                 <form onSubmit={onCreateSubmit}>
                 <div className="form-1">
                     <label className="form-2">Name for Deck</label>

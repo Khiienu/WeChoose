@@ -28,3 +28,8 @@
     border-radius: 10px;
     background-color: aquamarine;
 }
+
+.title {
+    color: aquamarine;
+    font-style: italic;
+}
