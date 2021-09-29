@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCTD } from "../../store/cardtoDeck";
 import { useParams} from 'react-router'
+import { getDecks } from "../../store/deck";
+import { getCardsThunk } from "../../store/card";
+import React from 'react';
+import ReactDom from 'react-dom';
+import Modal from 'react-modal';
+import './index.css'
 
 export default function AddToDeck({oneCard}) {
     const dispatch = useDispatch();
@@ -10,40 +16,54 @@ export default function AddToDeck({oneCard}) {
     const cards = useSelector((state) => Object.values(state.cards));
     const decks = useSelector((state) => Object.values(state.decks));
     const [deckId,setDeckId] = useState("")
-    // const []
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const customStyles = {
+        content: {
+          top: '50%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)',
+        },
+      };
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     const addCard = {
-    //         cardId: oneCard.id,
-    //         deckId: deckId
-    //     }
-    //     dispatch(addCTD(addCard))
-    //     // setCardId("");
-    // }
+
+    function openModal(){
+        setIsOpen(true);
+    }
+    function closeModal(){
+        setIsOpen(false)
+    }
+
+    useEffect(() => {
+        dispatch(getDecks())
+        dispatch(getCardsThunk())
+    }, [dispatch])
+ 
     return (
         <>
-        {decks.map(deck => {
-            console.log(oneCard.id, "THIS IS oneCard")
-            console.log(deck.userCards, "THIS IS DECKS AND USERCARDS")
-            // if(!deck.userCards.includes(oneCard)) 
-            // const check = deck.userCards.map(cardId => {
-            //     return cardId
-            // })
-            // console.log(check, "CARD ID")
-                return (<button key={deck.id} onClick={() => {
-                    setDeckId(deck.id);
-                }}>{deck.deckName}</button>)
-            
-            
-        })}
-
-        <button onClick={(e) => {
-            // if(decks.id.userCards.includes(oneCard.id)) {
-
-            // }
-            dispatch(addCTD(oneCard.id, deckId))
-        }}>ADD TO DECK</button>
+        <div>
+            <button onClick={openModal}> Add this card to a deck </button>
+            <Modal
+            isOpen={modalIsOpen}
+            // onAfterOpen={afterOpenModal}
+            onRequestClose={closeModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+            > 
+                <div className="form-for-decks">
+                    {decks.map(deck => {
+                            return (<button key={deck.id} onClick={() => {
+                                setDeckId(deck.id);
+                            }}>{deck.deckName}</button>)
+                    })}
+                </div>
+                <button onClick={(e) => {
+                    dispatch(addCTD(oneCard.id, deckId))
+                }}>ADD TO DECK</button>
+            </Modal>
+        </div>
         </>
     )
 }
