@@ -16,7 +16,7 @@ export default function DeleteOneCardFromDeck({card, oneDeck}) {
 
     return (
         <div className="deletebutton">
-            <button type='button' onClick={deleteClick}>delete</button>
+            <button className="button-deck" type='button' onClick={deleteClick}>delete</button>
         </div>
     )
 }

@@ -1,0 +1,79 @@
+.page {
+    background-color: rgba(80,35,33,255);
+     height: 100vh;
+     width: 100vw;
+ }
+ 
+ 
+ .card-case {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     align-content: flex-start;
+     height: auto;
+     text-decoration: none;
+ }
+ 
+ .indiv-card {
+     display: flex;
+     justify-content: center;
+     height: 100%;
+     padding: 10px;
+     margin: 2px;
+     text-decoration: none;
+     color: aquamarine;
+     flex-direction: column;
+ }
+ .indiv-card:hover {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.5);
+ 
+ }
+ 
+ .solo-card {
+     background-image: url("https://i.imgur.com/J6CAq27.png");
+     background-size: 100%;
+     background-repeat: no-repeat;
+     height: 360px;
+     width: 400px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none;
+     flex-direction: column;
+ }
+ 
+
+ .deck-info {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     width: 100vw;
+     margin-left: auto;
+     margin-right: auto;
+     flex-direction: column;
+ }
+ .deck{
+     display: flex;
+ }
+
+.button-deck {
+    border-radius: 25px;
+    height: 35px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 20px;
+    background-color: rgba(185,127,37,255);
+    border: none;
+}
+
+.button-deck:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.5);
+}
+
+.deck-name{
+    font-size: 50px;
+    color: #d1e3f8fd;
+    text-shadow: -1px 5px 2px #0000008e;
+}

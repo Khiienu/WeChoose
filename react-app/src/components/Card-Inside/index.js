@@ -2,6 +2,8 @@ import { useEffect} from 'react'
 import { useParams} from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { getSingleCardThunk } from '../../store/card'
+import { getDecks } from '../../store/deck'
+import { getCardsThunk } from '../../store/card'
 import EditCard from '../Card-Update'
 import DeleteOneCard from '../Card-Delete'
 import AddToDeck from '../CTD-Add'
@@ -16,10 +18,12 @@ export default function SingleCard() {
     const oneCard =  cards.find(card=> card.id === +id)
     useEffect(() => {
         dispatch(getSingleCardThunk(id))
+        dispatch(getDecks())
+        dispatch(getCardsThunk())
     }, [dispatch,id])
 
     return (
-        <div className="deck">
+        <div className="card">
             <div className="info">
                 <label className="card-info">{oneCard?.name}</label>
             </div>

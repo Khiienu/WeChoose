@@ -44,7 +44,7 @@ export default function EditDeckName({oneDeck}) {
     }
     return (
         <div>
-            <button onClick={openModal}> Edit Deck</button>
+            <button className="button-deck" onClick={openModal}> Edit Deck</button>
             <Modal
             isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
