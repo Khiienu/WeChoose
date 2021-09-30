@@ -32,19 +32,23 @@ export default function EditCard({oneCard}) {
     function closeModal(){
         setIsOpen(false)
     }
+    const editCardInfo = {
+        name: name,
+        description: description,
+        typeofcuisine: typeofcuisine
+    }
     const onEditSubmit = (e) => {
         e.preventDefault();
-        const editCardInfo = {
-            name: name,
-            description: description,
-            typeofcuisine: typeofcuisine
-        }
         dispatch(editOneCardThunk(oneCard.id, editCardInfo))
         dispatch(getDecks())
         dispatch(getCardsThunk())
         // setName('');
         // setDescription('');
         // setTypeOfCuisine('');
+    }
+    function editCard() {
+        dispatch(editOneCardThunk(oneCard.id, editCardInfo))
+        closeModal()
     }
     return (
         <div>
@@ -61,9 +65,13 @@ export default function EditCard({oneCard}) {
                     <input className="headers" type="text" value={name} onChange={e => setName(e.target.value)} maxLength="25"></input>
                     <textarea className="headers-ta" type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Change Description" maxLength="75"></textarea>
                     <input className="headers" type="text" value={typeofcuisine} onChange={e => setTypeOfCuisine(e.target.value)} placeholder="Change type of cuisine" maxLength="15"></input>
-                    <button className="button-edit" type="submit"> change card info </button>
+                    <button className="button-edit" type="submit" onClick={editCard}> change card info </button>
                 </form>
             </Modal>
         </div>
     )
 }
+// function editCard() {
+//     dispatch(editOneCardThunk(oneCard.id, editCardInfo))
+//     closeModal()
+// }
