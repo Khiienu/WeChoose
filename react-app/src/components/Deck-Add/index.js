@@ -25,7 +25,7 @@ export default function DeckCreator() {
                 <form onSubmit={onCreateSubmit}>
                 <div className="form-1">
                     <label className="form-2">Name for Deck</label>
-                    <input className="form-inputs" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="New Deck Name" />
+                    <input className="form-inputs" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="New Deck Name" maxLength="25" />
                 </div>
                 <div className="form-1">
                     <button className="newDeck" onClick={(e) => {

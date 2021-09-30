@@ -26,8 +26,6 @@ export default function EditCard({oneCard}) {
           transform: 'translate(-50%, -50%)',
         },
       };
-
-
     function openModal(){
         setIsOpen(true);
     }
@@ -44,9 +42,9 @@ export default function EditCard({oneCard}) {
             typeofcuisine: typeofcuisine
         }
         dispatch(editOneCardThunk(oneCard.id, editCardInfo))
-        setName('');
-        setDescription('');
-        setTypeOfCuisine('');
+        // setName('');
+        // setDescription('');
+        // setTypeOfCuisine('');
     }
     return (
         <div>
@@ -60,7 +58,7 @@ export default function EditCard({oneCard}) {
             > 
                 <form onSubmit={onEditSubmit} className="edit-card-name">
                     <h2>Change card details</h2>
-                    <input className="headers" type="text" onChange={e => setName(e.target.value)} placeholder="Change name"></input>
+                    <input className="headers" type="text" onChange={e => setName(e.target.value)}></input>
                     <input className="headers" type="text" onChange={e => setDescription(e.target.value)} placeholder="Change Description"></input>
                     <input className="headers" type="text" onChange={e => setTypeOfCuisine(e.target.value)} placeholder="Change type of cuisine"></input>
                     <button className="button-edit" type="submit"> change card info </button>

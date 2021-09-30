@@ -55,7 +55,7 @@ export default function EditDeckName({oneDeck}) {
             <div className="deck-info">
                 <h1>Change deck name</h1>
                 <form onSubmit={onSubmit} className="edit-deck-name">
-                    <input className="input-for-edit-deck" type="text" onChange={e => setDeckNames(e.target.value)}></input>
+                    <input className="input-for-edit-deck" type="text" onChange={e => setDeckNames(e.target.value)} maxLength="25"></input>
                     <button className="button-deck" type="submit"> change name </button>
                 </form>
             </div>

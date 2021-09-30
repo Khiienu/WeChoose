@@ -14,6 +14,9 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    if(password !== repeatPassword){
+      setErrors(["Passwords do not match"])
+    }
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -58,6 +61,7 @@ const SignUpForm = () => {
             name='username'
             onChange={updateUsername}
             value={username}
+            maxLength='15'
           />
         </div>
         <div className="form-1">

@@ -26,11 +26,11 @@ export default function CardCreator() {
         <div className="create-form">
             <form onSubmit={onCreateSubmit}>
                 <div className="form-1">
-                    <label className="form-2">Name of restuarant</label>
-                    <input className="form-inputs" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Restuarant Name"/>
+                    <label className="form-2">Name of restaurant</label>
+                    <input className="form-inputs" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Restuarant Name" maxLength="25"/>
                 </div>
                 <div className="form-1">
-                    <label className="form-2">Description of restuarant</label>
+                    <label className="form-2">Description of restaurant</label>
                     <input className="form-inputs" type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Description of restuarant"/>
                 </div>
                 <div className="form-1">
