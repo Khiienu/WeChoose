@@ -46,13 +46,12 @@
     background-image: url("https://i.imgur.com/J6CAq27.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 360px;
+    height: 460px;
     width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 60px;
 }
 
 .cardname {

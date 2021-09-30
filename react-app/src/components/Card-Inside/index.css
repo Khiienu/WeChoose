@@ -2,4 +2,23 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgba(184,127,23,255);
+    text-shadow: -1px 5px 2px #0000008e;
+}
+
+.button-card {
+    border-radius: 25px;
+    height: 35px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 20px;
+    background-color: rgba(185,127,37,255);
+    border: none;
+}
+
+.button-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.5);
 }

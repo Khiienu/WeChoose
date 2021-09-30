@@ -14,7 +14,7 @@ export default function DeleteOneCard({oneCard}) {
 
     return (
         <div className="deletebutton">
-            <button type='button' onClick={deleteClick}>delete</button>
+            <button className="button-card" type='button' onClick={deleteClick}>delete</button>
         </div>
     )
 }

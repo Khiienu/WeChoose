@@ -5,7 +5,8 @@
     height: 100%;
     grid-row: 1 / 4;
     grid-column: 1 / end;
-    background-color: rgba(185,127,37,255);
+    background-color: rgba(187,143,118,255)
+    ;
   }
   .navbar a {
     text-decoration: none;

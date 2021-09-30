@@ -4,6 +4,7 @@ import { editOneCardThunk } from '../../store/card';
 import React from 'react';
 // import ReactDom from 'react-dom';
 import Modal from 'react-modal';
+import './index.css';
 
 
 export default function EditCard({oneCard}) {
@@ -49,7 +50,7 @@ export default function EditCard({oneCard}) {
     }
     return (
         <div>
-            <button onClick={openModal}>Edit card details</button>
+            <button className="button-card" onClick={openModal}>Edit card details</button>
             <Modal
             isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
@@ -57,17 +58,12 @@ export default function EditCard({oneCard}) {
             style={customStyles}
             contentLabel="Example Modal"
             > 
-                <form onSubmit={onEditSubmit} className="edit-deck-name">
-                    <div className="headers">
-                    <input type="text" onChange={e => setName(e.target.value)} placeholder="Change name"></input>
-                    </div>
-                    <div className="headers">
-                    <input type="text" onChange={e => setDescription(e.target.value)} placeholder="Change Description"></input>
-                    </div>
-                    <div className="headers">
-                    <input type="text" onChange={e => setTypeOfCuisine(e.target.value)} placeholder="Change type of cuisine"></input>
-                    </div>
-                    <button type="submit"> change card info </button>
+                <form onSubmit={onEditSubmit} className="edit-card-name">
+                    <h2>Change card details</h2>
+                    <input className="headers" type="text" onChange={e => setName(e.target.value)} placeholder="Change name"></input>
+                    <input className="headers" type="text" onChange={e => setDescription(e.target.value)} placeholder="Change Description"></input>
+                    <input className="headers" type="text" onChange={e => setTypeOfCuisine(e.target.value)} placeholder="Change type of cuisine"></input>
+                    <button className="button-edit" type="submit"> change card info </button>
                 </form>
             </Modal>
         </div>

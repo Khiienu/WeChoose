@@ -1,3 +1,25 @@
 .form-for-decks {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.add-button {
+    margin-top: 10px;
+    border-radius: 25px;
+    height: 35px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 20px;
+    background-color: rgba(185,127,37,255);
+    border: none;
+}
+.decks{
+    margin-top: 10px;
+    border-radius: 25px;
+    height: 35px;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 20px;
+    background-color: rgba(185,127,37,255);
 }

@@ -42,7 +42,7 @@ export default function AddToDeck({oneCard}) {
     return (
         <>
         <div>
-            <button onClick={openModal}> Add this card to a deck </button>
+            <button className="button-card" onClick={openModal}> Add this card to a deck </button>
             <Modal
             isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
@@ -50,16 +50,17 @@ export default function AddToDeck({oneCard}) {
             style={customStyles}
             contentLabel="Example Modal"
             > 
+                <h3>Choose a deck to add</h3>
                 <div className="form-for-decks">
                     {decks.map(deck => {
-                            return (<button key={deck.id} onClick={() => {
+                            return (<button className="decks" key={deck.id} onClick={() => {
                                 setDeckId(deck.id);
                             }}>{deck.deckName}</button>)
                     })}
-                </div>
-                <button onClick={(e) => {
+                <button className="add-button" onClick={(e) => {
                     dispatch(addCTD(oneCard.id, deckId))
                 }}>ADD TO DECK</button>
+                </div>
             </Modal>
         </div>
         </>
