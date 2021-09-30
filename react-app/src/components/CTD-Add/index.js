@@ -39,6 +39,10 @@ export default function AddToDeck({oneCard}) {
         dispatch(getCardsThunk())
     }, [dispatch])
  
+    function add() {
+        dispatch(addCTD(oneCard.id, deckId))
+        closeModal();
+    }
     return (
         <>
         <div>
@@ -57,12 +61,17 @@ export default function AddToDeck({oneCard}) {
                                 setDeckId(deck.id);
                             }}>{deck.deckName}</button>)
                     })}
-                <button className="add-button" onClick={(e) => {
-                    dispatch(addCTD(oneCard.id, deckId))
-                }}>ADD TO DECK</button>
+                <button className="add-button" onClick={
+                    add
+                }>ADD TO DECK</button>
                 </div>
             </Modal>
         </div>
         </>
     )
 }
+
+// function add() {
+//     dispatch(addCTD(oneCard.id, deckId))
+//     closeModal();
+// }

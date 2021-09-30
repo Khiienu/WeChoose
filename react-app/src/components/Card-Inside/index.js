@@ -25,13 +25,13 @@ export default function SingleCard() {
     return (
         <div className="card">
             <div className="info">
-                <h1 className="Heading">Restaurant: {oneCard.name}</h1>
+                <h1 className="Heading">Restaurant: {oneCard?.name}</h1>
             </div>
             <div className="info">
-                <h1 className="Heading">Description: {oneCard.description}</h1>
+                <h1 className="Heading">Description: {oneCard?.description}</h1>
             </div>
             <div className="info">
-                <h1 className="Heading">Type of cuisine: {oneCard.typeofcuisine}</h1>
+                <h1 className="Heading">Type of cuisine: {oneCard?.typeofcuisine}</h1>
             </div>
             <AddToDeck oneCard={oneCard}/>
             <EditCard oneCard={oneCard}/>
