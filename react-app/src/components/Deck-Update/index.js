@@ -52,11 +52,13 @@ export default function EditDeckName({oneDeck}) {
             style={customStyles}
             contentLabel="Example Modal"
             >   
+            <div className="deck-info">
                 <h1>Change deck name</h1>
                 <form onSubmit={onSubmit} className="edit-deck-name">
-                    <input type="text" onChange={e => setDeckNames(e.target.value)}></input>
-                    <button type="submit"> change name </button>
+                    <input className="input-for-edit-deck" type="text" onChange={e => setDeckNames(e.target.value)}></input>
+                    <button className="button-deck" type="submit"> change name </button>
                 </form>
+            </div>
             </Modal>
         </div>
     )
