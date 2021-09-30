@@ -72,8 +72,6 @@ export const createDeckThunk = payload => async(dispatch) => {
         const deck= await res.json()
         dispatch(createDeck(deck))
         return deck;
-    }else {
-        let error = await res.json()
     }
 }
 

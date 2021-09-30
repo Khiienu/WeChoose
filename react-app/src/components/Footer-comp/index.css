@@ -1,0 +1,12 @@
+.footer {
+    background-color: coral;
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}

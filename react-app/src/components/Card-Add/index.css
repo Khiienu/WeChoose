@@ -4,6 +4,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    padding-top: 10px;
 }
 .form-1 {
     display: flex;
@@ -15,7 +16,6 @@
 .form-2 {
     color: aquamarine;
     font-size: 20px;
-    font-style: italic;
 }
 
 .form-inputs{
@@ -31,5 +31,4 @@
 
 .title {
     color: aquamarine;
-    font-style: italic;
 }

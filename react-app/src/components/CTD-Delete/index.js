@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useHistory} from 'react-router-dom';
 import { deleteCFD } from '../../store/deck';
 
 export default function DeleteOneCardFromDeck({card, oneDeck}) {

@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCTD } from "../../store/cardtoDeck";
-import { useParams} from 'react-router'
 import { getDecks } from "../../store/deck";
 import { getCardsThunk } from "../../store/card";
 import React from 'react';
-import ReactDom from 'react-dom';
 import Modal from 'react-modal';
 import './index.css'
 
 export default function AddToDeck({oneCard}) {
     const dispatch = useDispatch();
     // const [cardId, setCardId] = useState("")
-    const sessionUser = useSelector((state) => state.session.user);
-    const cards = useSelector((state) => Object.values(state.cards));
+    // const sessionUser = useSelector((state) => state.session.user);
+    // const cards = useSelector((state) => Object.values(state.cards));
     const decks = useSelector((state) => Object.values(state.decks));
     const [deckId,setDeckId] = useState("")
     const [modalIsOpen, setIsOpen] = React.useState(false);

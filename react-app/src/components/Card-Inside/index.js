@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import { useParams} from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteoneCardThunk, getSingleCardThunk } from '../../store/card'
+import { getSingleCardThunk } from '../../store/card'
 import EditCard from '../Card-Update'
 import DeleteOneCard from '../Card-Delete'
 import AddToDeck from '../CTD-Add'
@@ -11,12 +11,12 @@ export default function SingleCard() {
     const {id} = useParams();
     const dispatch = useDispatch();
 
-    const sessionUser= useSelector((state) => state.session.user);
+    // const sessionUser= useSelector((state) => state.session.user);
     const cards = useSelector((state) => Object.values(state.cards))
     const oneCard =  cards.find(card=> card.id === +id)
     useEffect(() => {
         dispatch(getSingleCardThunk(id))
-    }, [dispatch])
+    }, [dispatch,id])
 
     return (
         <div className="deck">

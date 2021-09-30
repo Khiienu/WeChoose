@@ -1,13 +1,16 @@
-.wrapper {
+.wrapper-login {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* flex-direction: column; */
     border-radius: 5px;
     padding-top: 50px;
 }
 
 .form {
     background-image: url('https://i.imgur.com/eA5BJgl.png');
+    display: flex;
+    flex-direction: column;
     border-radius: 5px;
 }
 

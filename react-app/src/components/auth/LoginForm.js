@@ -32,39 +32,37 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="wrapper">
-      <div className="form">
-        <form onSubmit={onLogin}>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div>
-          <div className="form-1">
-            <label className="form-2" htmlFor='email'>Email</label>
-            <input
-              className="form-inputs"
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
-          <div className="form-1">
-            <label className="form-2" htmlFor='password'>Password</label>
-            <input
-              className="form-inputs"
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
-          </div>
-          <button className="button" type='submit'>Login</button>
-        </form>
-      </div>
+    <div className="wrapper-login">
+      <form className="form" onSubmit={onLogin}>
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+        <div className="form-1">
+          <label className="form-2" htmlFor='email'>Email</label>
+          <input
+            className="form-inputs"
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div className="form-1">
+          <label className="form-2" htmlFor='password'>Password</label>
+          <input
+            className="form-inputs"
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+        <button className="button" type='submit'>Login</button>
+      </form>
     </div>
   );
 };

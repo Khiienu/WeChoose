@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react';
-import { useSelector ,useDispatch } from 'react-redux';
+import {useState} from 'react';
+import { useDispatch } from 'react-redux';
 import { editOneDeckThunk } from '../../store/deck';
 import React from 'react';
-import ReactDom from 'react-dom';
+// import ReactDom from 'react-dom';
 import Modal from 'react-modal';
 
 
@@ -10,8 +10,8 @@ import Modal from 'react-modal';
 export default function EditDeckName({oneDeck}) {
     const dispatch = useDispatch();
     const [deckNames, setDeckNames] = useState("")
-    const sessionUser = useSelector((state) => state.session.user);
-    const decks = useSelector((state) => Object.values(state.decks))
+    // const sessionUser = useSelector((state) => state.session.user);
+    // const decks = useSelector((state) => Object.values(state.decks))
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
     const customStyles = {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import { useParams} from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { getDeckThunk } from '../../store/deck';
@@ -9,12 +9,12 @@ export default function SingleDeck() {
     const { id } = useParams();
     const dispatch = useDispatch();
 
-    const sessionUser = useSelector((state) => state.session.user);
+    // const sessionUser = useSelector((state) => state.session.user);
     const decks = useSelector((state) =>  Object.values(state.decks))
     const oneDeck = decks.find(deck => deck.id === +id)
     useEffect(() => {
         dispatch(getDeckThunk(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     return (
         <div className="deck">

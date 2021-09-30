@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react';
-import { useSelector ,useDispatch } from 'react-redux';
+import {useState} from 'react';
+import { useDispatch } from 'react-redux';
 import { editOneCardThunk } from '../../store/card';
 import React from 'react';
-import ReactDom from 'react-dom';
+// import ReactDom from 'react-dom';
 import Modal from 'react-modal';
 
 
@@ -11,8 +11,8 @@ export default function EditCard({oneCard}) {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [typeofcuisine, setTypeOfCuisine] = useState('')
-    const sessionUser = useSelector((state) => state.session.user)
-    const cards = useSelector((state) => Object.values(state.cards))
+    // const sessionUser = useSelector((state) => state.session.user)
+    // const cards = useSelector((state) => Object.values(state.cards))
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
     const customStyles = {

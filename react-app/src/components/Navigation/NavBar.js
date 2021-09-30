@@ -16,7 +16,7 @@ const NavBar = ({ isLoaded }) => {
         <h1 className="homeTitle">We Choose</h1>
         <NavLink className="navHome" to='/' exact={true} activeClassName='active'>
         </NavLink>
-        <NavLink className="navCards" to="/cards" exact={true} activeClassName="active">Cards</NavLink>
+        {/* <NavLink className="navCards" to="/cards" exact={true} activeClassName="active">Cards</NavLink> */}
         <NavLink className="navDecks" to="/decks" exact={true} activeClassName="active">Decks</NavLink>
         <div className="navLogout">
           <LogoutButton />
