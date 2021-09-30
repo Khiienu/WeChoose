@@ -58,9 +58,9 @@ export default function EditCard({oneCard}) {
             > 
                 <form onSubmit={onEditSubmit} className="edit-card-name">
                     <h2>Change card details</h2>
-                    <input className="headers" type="text" value={name} onChange={e => setName(e.target.value)}></input>
-                    <textarea className="headers-ta" type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Change Description"></textarea>
-                    <input className="headers" type="text" value={typeofcuisine} onChange={e => setTypeOfCuisine(e.target.value)} placeholder="Change type of cuisine"></input>
+                    <input className="headers" type="text" value={name} onChange={e => setName(e.target.value)} maxLength="25"></input>
+                    <textarea className="headers-ta" type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Change Description" maxLength="75"></textarea>
+                    <input className="headers" type="text" value={typeofcuisine} onChange={e => setTypeOfCuisine(e.target.value)} placeholder="Change type of cuisine" maxLength="15"></input>
                     <button className="button-edit" type="submit"> change card info </button>
                 </form>
             </Modal>

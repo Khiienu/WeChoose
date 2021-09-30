@@ -8,8 +8,8 @@ export default function DeleteOneCard({oneCard}) {
         e.preventDefault();
         dispatch(deleteoneCardThunk(oneCard.id));
         // window.location.replace('/cards')
-        history.push(`/cards`)
-        window.location.replace('/cards')
+        history.push(`/`)
+        window.location.replace('/')
     }
 
     return (

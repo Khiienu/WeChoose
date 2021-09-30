@@ -31,11 +31,11 @@ export default function CardCreator() {
                 </div>
                 <div className="form-1">
                     <label className="form-2">Description of restaurant</label>
-                    <input className="form-inputs" type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Description of restuarant"/>
+                    <input className="form-inputs" type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Description of restuarant" maxLength="75"/>
                 </div>
                 <div className="form-1">
                     <label className="form-2">What is the type of cuisine?</label>
-                    <input className="form-inputs" type="text" value={typeofcuisine} onChange={e =>setTypeOfCuisine(e.target.value)} placeholder="What's the type of cuisine?"/>
+                    <input className="form-inputs" type="text" value={typeofcuisine} onChange={e =>setTypeOfCuisine(e.target.value)} placeholder="What's the type of cuisine?" maxLength="15"/>
                 </div>
                 <div className="form-1">
                     <button className="newCard" onClick={(e) => {
