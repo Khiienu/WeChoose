@@ -9,7 +9,7 @@ import Modal from 'react-modal';
 
 export default function EditDeckName({oneDeck}) {
     const dispatch = useDispatch();
-    const [deckNames, setDeckNames] = useState("")
+    const [deckNames, setDeckNames] = useState(oneDeck?.deckName)
     // const sessionUser = useSelector((state) => state.session.user);
     // const decks = useSelector((state) => Object.values(state.decks))
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -25,7 +25,6 @@ export default function EditDeckName({oneDeck}) {
         },
       };
 
-
     function openModal(){
         setIsOpen(true);
     }
@@ -33,15 +32,19 @@ export default function EditDeckName({oneDeck}) {
         setIsOpen(false)
     }
 
+    const editInfo = {
+        deckName: deckNames
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const editInfo = {
-            deckName: deckNames
-        }
         dispatch(editOneDeckThunk(oneDeck.id, editInfo))
         setDeckNames("")
     }
+    function edit() {
+            dispatch(editOneDeckThunk(oneDeck.id, editInfo))
+            closeModal();
+        }
     return (
         <div>
             <button className="button-deck" onClick={openModal}> Edit Deck</button>
@@ -55,11 +58,16 @@ export default function EditDeckName({oneDeck}) {
             <div className="deck-info">
                 <h1>Change deck name</h1>
                 <form onSubmit={onSubmit} className="edit-deck-name">
-                    <input className="input-for-edit-deck" type="text" onChange={e => setDeckNames(e.target.value)} maxLength="25"></input>
-                    <button className="button-deck" type="submit"> change name </button>
+                    <input className="input-for-edit-deck" type="text" value={deckNames} onChange={e => setDeckNames(e.target.value)} maxLength="25"></input>
+                    <button className="button-deck" type="submit" onClick={edit}> change name </button>
                 </form>
             </div>
             </Modal>
         </div>
     )
 }
+
+// function edit() {
+//     dispatch(editOneDeckThunk(oneDeck.id, editInfo))
+//     closeModal();
+// }
