@@ -5,7 +5,7 @@ export default function Splashpage() {
         <>
         <div className="wrapper-splash">
             <div className="about-us">
-                <h1 className="about-wc">THIS IS BLAh</h1>
+                <h1 className="about-wc"></h1>
             </div>
         </div>
         <Footer />
