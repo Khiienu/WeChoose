@@ -1,6 +1,7 @@
 # *We Choose*
 *We choose* is a website dedicated towards people who do not know where to eat sometimes . Allowing users to create cards with their favorite restaurants and add those cards to decks. 
 
+https://wechoose.herokuapp.com/splash
 # *We choose* the splash page
 
 ![](https://i.imgur.com/nXMnCYv.jpg)
