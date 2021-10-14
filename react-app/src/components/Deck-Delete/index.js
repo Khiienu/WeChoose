@@ -15,7 +15,7 @@ export default function DeleteOneDeck({oneDeck}) {
     }
 
     return (
-        <div className="button-deck">
+        <div className="button-deck-del">
             <button className="button-deck" type='button' onClick={deleteClick}>delete</button>
         </div>
     )

@@ -16,7 +16,7 @@ Modal.setAppElement("#root")
 export default function SingleDeck() {
     const { id } = useParams();
     const dispatch = useDispatch();
-    
+
     const [modalIsOpen, setIsOpen] = useState(false);
     const customStyles = {
         content: {
@@ -56,7 +56,7 @@ export default function SingleDeck() {
                 <h1 className="deck-name">{oneDeck?.deckName}</h1>
                 <button className="button-card" onClick={openModal}>WE CHOOSE FOR YOU</button>
                 <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
-                    <h1 className="deck-chose"> We choose this-->
+                    <h1 className="deck-chose"> We choose this==>
                     {cardtoChoose?.name} </h1>
                     </Modal>
                 <EditDeckName oneDeck={oneDeck}/>
@@ -72,8 +72,8 @@ export default function SingleDeck() {
                                 <div className="solo-card">
                                     <h1 className="cardname">{card.name}</h1>
                                 </div>
-                            </Link>
                             <DeleteOneCardFromDeck card={card} oneDeck={oneDeck}/>
+                            </Link>
                         </div>
                     ))}
                 </div>
