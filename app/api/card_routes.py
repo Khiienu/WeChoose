@@ -42,7 +42,6 @@ def cardPost():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #* PUT
-
 @card_routes.route('/<int:id>', methods=['PUT'])
 # @login_required
 def cardPut(id):
