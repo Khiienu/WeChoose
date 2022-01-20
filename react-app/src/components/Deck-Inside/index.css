@@ -64,6 +64,7 @@
     color: white;
     font-size: 20px;
     background-color: rgba(185,127,37,255);
+    margin-top: 5px;
     border: none;
 }
 
@@ -79,4 +80,10 @@
 .input-for-edit-deck {
     border-radius: 15px;
     size: 20px;
+}
+
+.deck-chose {
+    font-size: 50px;
+    color: rgba(185,127,37,255);
+    text-shadow: -1px 5px 2px #0000008e;
 }
